@@ -1,15 +1,14 @@
 import { MenuIcon, XIcon } from '@heroicons/react/solid'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../../images/logo.png'
 
-const Header = () => {
+const Header = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <nav className="flex justify-between items-center gap-10 px-10 md:px-20 py-6 relative">
+        <nav className="flex justify-between items-center gap-10 px-10 md:px-20 py-6 relative font-semibold">
             <Link to="/">
-                <img className="text-white" width={'100'} src={logo} alt="" />
+                <img className="text-white" width={'100'} src={children} alt="" />
             </Link>
             <div onClick={() => setIsOpen(!isOpen)} className="h-7 w-7 md:hidden">
                 {isOpen ? <XIcon /> : <MenuIcon />}
@@ -39,7 +38,7 @@ const Header = () => {
                         <Link to="/">Contact</Link>
                     </li>
                 </ul>
-                <Link to="/">
+                <Link to="/login">
                     <button className="py-3 px-7 text-black font-semibold bg-[#F9A51A] rounded-lg outline-none">
                         Login
                     </button>

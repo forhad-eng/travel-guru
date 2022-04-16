@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import useData from '../../../hooks/useData'
+import logo from '../../../images/logo.png'
 import Header from '../../Shared/Header/Header'
 
 const Booking = () => {
@@ -11,7 +12,7 @@ const Booking = () => {
 
     return (
         <div className="banner">
-            <Header />
+            <Header>{logo}</Header>
             <div className="h-fit grid md:grid-cols-2 gap-10 md:mt-16 px-10 md:px-20">
                 <div>
                     <p className="text-6xl uppercase font-bold mb-8">{seletedDest?.name}</p>

@@ -2,6 +2,7 @@ import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/re
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import useData from '../../hooks/useData'
+import logo from '../../images/logo.png'
 import '../../Styles/Home.css'
 import Header from '../Shared/Header/Header'
 
@@ -11,7 +12,7 @@ const Home = () => {
 
     return (
         <div className="banner">
-            <Header />
+            <Header>{logo}</Header>
             <div className="grid md:grid-cols-2 gap-10 items-center px-10 md:px-20">
                 <div>
                     <p className="text-6xl uppercase font-bold mb-8">
