@@ -8,7 +8,9 @@ const Header = () => {
 
     return (
         <nav className="flex justify-between items-center gap-10 px-10 md:px-20 py-6 relative">
-            <img className="text-white" width={'100'} src={logo} alt="" />
+            <Link to="/">
+                <img className="text-white" width={'100'} src={logo} alt="" />
+            </Link>
             <div onClick={() => setIsOpen(!isOpen)} className="h-7 w-7 md:hidden">
                 {isOpen ? <XIcon /> : <MenuIcon />}
             </div>
@@ -38,7 +40,9 @@ const Header = () => {
                     </li>
                 </ul>
                 <Link to="/">
-                    <button className="py-3 px-7 text-black bg-[#F9A51A] rounded outline-none">Login</button>
+                    <button className="py-3 px-7 text-black font-semibold bg-[#F9A51A] rounded-lg outline-none">
+                        Login
+                    </button>
                 </Link>
             </div>
         </nav>
