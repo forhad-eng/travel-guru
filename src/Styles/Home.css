@@ -1,0 +1,9 @@
+.banner {
+    background: rgba(0, 0, 0, 0.6) url('../images/Rectangle\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-blend-mode: darken;
+    color: white;
+}
