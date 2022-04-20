@@ -21,6 +21,7 @@ const Home = () => {
         const secondPlace = destination[index === 3 ? 0 : index + 1]
         const newPlaces = [firstPlace, secondPlace]
         setNewDest(newPlaces)
+        setPlace(firstPlace)
 
         index++
         if (index === 4) {
@@ -52,19 +53,13 @@ const Home = () => {
 
                 <div className="grid md:grid-cols-2 gap-9 items-center">
                     {newDest.map((place, index) => {
+                        console.log(newDest[0])
                         const { name, img } = place
                         return (
                             <div
-                                onMouseOver={() => {
-                                    const selectedPlace = place
-                                    selectedPlace.status = 'active'
-                                    setPlace(selectedPlace)
-                                }}
-                                onMouseLeave={() => {
-                                    place.status = ''
-                                    setPlace(place)
-                                }}
-                                className={`relative ${place?.status && 'border-4 rounded-3xl border-orange-400'}`}
+                                className={`relative ${
+                                    index === 0 ? 'border-4 rounded-3xl border-orange-400' : 'border-none'
+                                }`}
                             >
                                 <img src={img} alt="" />
                                 <p className="absolute bottom-8 left-6 text-3xl uppercase font-bold">{name}</p>
