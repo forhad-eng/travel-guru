@@ -53,10 +53,10 @@ const Home = () => {
 
                 <div className="grid md:grid-cols-2 gap-9 items-center">
                     {newDest.map((place, index) => {
-                        console.log(newDest[0])
                         const { name, img } = place
                         return (
                             <div
+                                key={index}
                                 className={`relative ${
                                     index === 0 ? 'border-4 rounded-3xl border-orange-400' : 'border-none'
                                 }`}

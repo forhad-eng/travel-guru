@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { auth } from '../../../Firebase/firebase.init'
 import logo from '../../../images/logo2.png'
 import Header from '../../Shared/Header/Header'
@@ -11,9 +11,12 @@ const Login = () => {
     const passRef = useRef('')
     const [signInWithEmailAndPassword, user, , error] = useSignInWithEmailAndPassword(auth)
     const navigate = useNavigate()
+    const location = useLocation()
+
+    const from = location.state?.from?.pathname || '/'
 
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true })
     }
 
     const loginHandler = e => {

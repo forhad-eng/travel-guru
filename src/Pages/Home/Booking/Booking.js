@@ -58,7 +58,7 @@ const Booking = () => {
                                 />
                             </div>
                         </div>
-                        <Link to="/">
+                        <Link to="/destination">
                             <button className="w-full bg-[#F9A51A] py-3 rounded-lg mt-5 font-semibold">
                                 Start Booking
                             </button>
