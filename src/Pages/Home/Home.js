@@ -1,14 +1,32 @@
 import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useData from '../../hooks/useData'
 import logo from '../../images/logo.png'
 import '../../Styles/Home.css'
 import Header from '../Shared/Header/Header'
+let index = 1
 
 const Home = () => {
     const [destination] = useData()
+    const [newDest, setNewDest] = useState([])
     const [place, setPlace] = useState({})
+
+    useEffect(() => {
+        setNewDest(destination?.slice(0, 2))
+    }, [destination])
+
+    const leftHandler = () => {
+        const firstPlace = destination[index]
+        const secondPlace = destination[index === 3 ? 0 : index + 1]
+        const newPlaces = [firstPlace, secondPlace]
+        setNewDest(newPlaces)
+
+        index++
+        if (index === 4) {
+            index = 0
+        }
+    }
 
     return (
         <div className="banner">
@@ -33,7 +51,7 @@ const Home = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-9 items-center">
-                    {destination.slice(0, 2).map((place, index) => {
+                    {newDest.map((place, index) => {
                         const { name, img } = place
                         return (
                             <div
@@ -56,10 +74,10 @@ const Home = () => {
                 </div>
             </div>
             <div className="flex justify-center gap-2 my-8">
-                <button className="h-7 w-7 bg-white text-black rounded-full outline-none">
+                <button onClick={leftHandler} className="h-7 w-7 bg-white text-black rounded-full outline-none">
                     <ChevronLeftIcon />
                 </button>
-                <button className="h-7 w-7 bg-white text-black rounded-full outline-none">
+                <button onClick={leftHandler} className="h-7 w-7 bg-white text-black rounded-full outline-none">
                     <ChevronRightIcon />
                 </button>
             </div>

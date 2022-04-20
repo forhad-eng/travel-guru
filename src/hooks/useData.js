@@ -13,7 +13,7 @@ const useData = () => {
         fetchData()
     }, [])
 
-    return [destination]
+    return [destination, setDestination]
 }
 
 export default useData
