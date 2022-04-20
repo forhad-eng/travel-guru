@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { Link, useNavigate } from 'react-router-dom'
-import { auth } from '../../../Firebase/Firebase.init'
+import { auth } from '../../../Firebase/firebase.init'
 import logo from '../../../images/logo2.png'
 import Header from '../../Shared/Header/Header'
 import SocialLogin from '../SocialLogin/SocialLogin'

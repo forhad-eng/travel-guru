@@ -26,16 +26,28 @@ const Home = () => {
                         </small>
                     </p>
                     <Link to={`/destination/${place?.id ? place?.id : destination[0]?.id} `}>
-                        <button className="flex items-center py-3 px-7 bg-[#F9A51A] rounded-lg text-black font-semibold outline-none">
-                            Booking <ArrowRightIcon className="h-5 w-5 ml-2" />
+                        <button className="py-3 px-7 bg-[#F9A51A] rounded-lg text-black font-semibold outline-none">
+                            Booking <ArrowRightIcon className="inline h-5 w-5" />
                         </button>
                     </Link>
                 </div>
+
                 <div className="grid md:grid-cols-2 gap-9 items-center">
                     {destination.slice(0, 2).map((place, index) => {
                         const { name, img } = place
                         return (
-                            <div onClick={() => setPlace(place)} className="relative">
+                            <div
+                                onMouseOver={() => {
+                                    const selectedPlace = place
+                                    selectedPlace.status = 'active'
+                                    setPlace(selectedPlace)
+                                }}
+                                onMouseLeave={() => {
+                                    place.status = ''
+                                    setPlace(place)
+                                }}
+                                className={`relative ${place?.status && 'border-4 rounded-3xl border-orange-400'}`}
+                            >
                                 <img src={img} alt="" />
                                 <p className="absolute bottom-8 left-6 text-3xl uppercase font-bold">{name}</p>
                             </div>

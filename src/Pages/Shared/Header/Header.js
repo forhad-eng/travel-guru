@@ -3,7 +3,7 @@ import { signOut } from 'firebase/auth'
 import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link } from 'react-router-dom'
-import { auth } from '../../../Firebase/Firebase.init'
+import { auth } from '../../../Firebase/firebase.init'
 
 const Header = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +33,7 @@ const Header = ({ children }) => {
                         <Link to="/">News</Link>
                     </li>
                     <li>
-                        <Link to="/">Destination</Link>
+                        <Link to="/destination">Destination</Link>
                     </li>
                     <li>
                         <Link to="/">Blog</Link>
